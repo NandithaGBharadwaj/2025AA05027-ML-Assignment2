@@ -21,14 +21,10 @@ from sklearn.metrics import (
     matthews_corrcoef
 )
 
-# ============================
 # Load Dataset
-# ============================
 data = pd.read_csv("heart.csv")
 
-# ============================
 # Encode Categorical Columns
-# ============================
 categorical_cols = [
     "Sex",
     "ChestPainType",
@@ -44,15 +40,11 @@ for col in categorical_cols:
     data[col] = le.fit_transform(data[col])
     label_encoders[col] = le
 
-# ============================
 # Split Features & Target
-# ============================
 X = data.drop("HeartDisease", axis=1)
 y = data["HeartDisease"]
 
-# ============================
 # Train-Test Split
-# ============================
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
@@ -61,24 +53,18 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-# ============================
 # Save Test Data for Streamlit
-# ============================
 test_data = X_test.copy()
 test_data["HeartDisease"] = y_test.values
 
 test_data.to_csv("test.csv", index=False)
 
-# ============================
 # Feature Scaling
-# ============================
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# ============================
 # Models
-# ============================
 models = {
     "Logistic Regression": LogisticRegression(max_iter=1000),
     "Decision Tree": DecisionTreeClassifier(random_state=42),
@@ -92,9 +78,7 @@ models = {
 
 }
 
-# ============================
 # Evaluation Function
-# ============================
 def evaluate_model(model, X_test, y_test):
     y_pred = model.predict(X_test)
     y_prob = model.predict_proba(X_test)[:, 1]
@@ -108,9 +92,7 @@ def evaluate_model(model, X_test, y_test):
         "MCC": matthews_corrcoef(y_test, y_pred)
     }
 
-# ============================
 # Train, Evaluate & Save
-# ============================
 results = {}
 
 for name, model in models.items():
@@ -127,9 +109,7 @@ for name, model in models.items():
 joblib.dump(scaler, "scaler.pkl")
 joblib.dump(label_encoders, "label_encoders.pkl")
 
-# ============================
 # Display Results
-# ============================
 results_df = pd.DataFrame(results).T
 print("\nEvaluation Metrics for All Models:\n")
 print(results_df)
