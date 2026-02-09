@@ -6,7 +6,7 @@ web application.
 
 ------------------------------------------------------------------
 
-a. PROBLEM STATEMENT
+## a. PROBLEM STATEMENT
 # Heart Disease Classification using Machine Learning
 
 
@@ -31,18 +31,18 @@ presence of heart disease.
 
 FEATURES IN THE DATASET:
 
-Age              : Age of the patient
-Sex              : Gender of the patient
-ChestPainType    : Type of chest pain
-RestingBP        : Resting blood pressure
-Cholesterol      : Serum cholesterol level
-FastingBS        : Fasting blood sugar
-RestingECG       : Resting electrocardiographic results
-MaxHR            : Maximum heart rate achieved
-ExerciseAngina   : Exercise induced angina
-Oldpeak          : ST depression induced by exercise
-ST_Slope         : Slope of peak exercise ST segment
-HeartDisease     : Target variable (0 or 1)
+- **Age**: Age of the patient  
+- **Sex**: Gender of the patient  
+- **ChestPainType**: Type of chest pain  
+- **RestingBP**: Resting blood pressure  
+- **Cholesterol**: Serum cholesterol level  
+- **FastingBS**: Fasting blood sugar  
+- **RestingECG**: Resting electrocardiographic results  
+- **MaxHR**: Maximum heart rate achieved  
+- **ExerciseAngina**: Exercise-induced angina  
+- **Oldpeak**: ST depression induced by exercise  
+- **ST_Slope**: Slope of peak exercise ST segment  
+- **HeartDisease**: Target variable (0 or 1)
 
 PREPROCESSING STEPS:
 - Categorical features encoded using Label Encoding
@@ -106,6 +106,5 @@ Ensemble and probabilistic models proved to be well-suited for heart disease cla
 ------------------------------------------------------------------
 
 
-=======
 # 2025AA05027-ML-Assignment2
 >>>>>>> 016c2cff917764566c25b9608e4551580bb62690
