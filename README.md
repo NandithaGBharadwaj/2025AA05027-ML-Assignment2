@@ -84,25 +84,14 @@ XGBoost              | 0.8696   | 0.9230  | 0.8980    | 0.8627  | 0.8800   | 0.7
 
 ## Model Performance Observations
 
-ML Model Name       | Observation about Model Performance
---------------------|--------------------------------------------------------------
-Logistic Regression | Achieved high recall and good overall performance.
-                    | Effective for this dataset but limited by linear boundaries.
-
-Decision Tree       | Lower performance compared to other models.
-                    | Likely overfitting and poor generalization.
-
-kNN                 | One of the best-performing models.
-                    | High accuracy, F1 score, and MCC after feature scaling.
-
-Naive Bayes         | Strong and consistent performance.
-                    | Independence assumption worked well for this dataset.
-
-Random Forest       | Improved performance over Decision Tree.
-                    | Ensemble method reduced overfitting and improved stability.
-
-XGBoost             | High precision and strong overall metrics.
-                    | Gradient boosting captured complex patterns effectively.
+| ML Model Name        | Observation about Model Performance |
+|----------------------|-------------------------------------|
+| Logistic Regression  | Achieved high recall and good overall performance. Effective for this dataset but limited by linear boundaries. |
+| Decision Tree        | Lower performance compared to other models. Likely overfitting and poor generalization. |
+| kNN                  | One of the best-performing models. High accuracy, F1 score, and MCC after feature scaling. |
+| Naive Bayes          | Strong and consistent performance. Independence assumption worked well for this dataset. |
+| Random Forest        | Improved performance over Decision Tree. Ensemble method reduced overfitting and improved stability. |
+| XGBoost              | High precision and strong overall metrics. Gradient boosting captured complex patterns effectively. |
 
 ------------------------------------------------------------------
 
