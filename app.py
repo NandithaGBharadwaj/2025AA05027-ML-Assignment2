@@ -154,6 +154,7 @@ import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
+import requests
 
 from sklearn.metrics import (
     accuracy_score,
@@ -220,9 +221,9 @@ scaler = joblib.load("model/scaler.pkl")
 label_encoders = joblib.load("model/label_encoders.pkl")
 
 # ============================
-# UI Components (with 1-column gap)
+# UI Components (Upload | Gap | Select | Gap | Download)
 # ============================
-col1, gap1, col2, _ = st.columns([2, 1, 2, 5])
+col1, gap1, col2, gap2, col3, _ = st.columns([2, 1, 2, 1, 2, 4])
 
 with col1:
     st.subheader("Upload Test Dataset (CSV)")
@@ -236,6 +237,23 @@ with col2:
     model_name = st.selectbox(
         label="",
         options=list(models.keys())
+    )
+
+with col3:
+    st.subheader("Download Test Dataset")
+
+    test_csv_url = (
+        "https://raw.githubusercontent.com/"
+        "NandithaGBharadwaj/2025AA05027-ML-Assignment2/main/model/test.csv"
+    )
+
+    response = requests.get(test_csv_url)
+
+    st.download_button(
+        label="Download test.csv",
+        data=response.content,
+        file_name="test.csv",
+        mime="text/csv"
     )
 
 # ============================
@@ -281,7 +299,7 @@ if uploaded_file is not None:
     # ============================
     # Metrics & Confusion Matrix (with 1-column gap)
     # ============================
-    metrics_col, gap2, cm_col, _ = st.columns([2.5, 1, 2.5, 4])
+    metrics_col, gap3, cm_col, _ = st.columns([2.5, 1, 2.5, 4])
 
     with metrics_col:
         st.subheader("Evaluation Metrics")
